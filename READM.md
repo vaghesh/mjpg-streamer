@@ -1,4 +1,8 @@
 
+REFERENCE : http://neuralassembly.blogspot.com/2014/12/intel-edisonwebmjpg-streamer.html
+
+
+
 #  Extra Information #
 "MJPG-streamer", is a command line application that copied JPG-frame from a single input plugin to multiple output plugins. It can be used to stream JPEG files over an IP-based network from the webcam to a viewer like Firefox, Cambozola, Videolanclient or even to a Windows Mobile device running the TCPMP-Player.
 
