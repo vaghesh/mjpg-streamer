@@ -1,8 +1,11 @@
 #  Installing for Intel Edison #
 
 $ git clone https://github.com/Vaghesh/mjpg-streamer
+
 $ opkg install libjpeg-dev libv4l-dev 
+
 $ Cd mjpg-Streamer 
+
 $ make ./mjpg_streamer -i "./input_uvc.so -d /dev/video0 -r 640x480 -f 15" -o "./output_http.so -p 9000 -w ./www"
 
 
@@ -25,42 +28,42 @@ To view a single JPEG just call:
 http://127.0.0.1:8080/?action=snapshot
 
 To compile and start the tool:
-# tar xzvf mjpg-streamer.tgz
-# cd mjpg-streamer
-# make clean all
-# export LD_LIBRARY_PATH=.
-# ./mjpg_streamer -o "output_http.so -w ./www"
+$ tar xzvf mjpg-streamer.tgz
+$ cd mjpg-streamer
+$ make clean all
+$ export LD_LIBRARY_PATH=.
+$ ./mjpg_streamer -o "output_http.so -w ./www"
 
 If you have libv4l2 library you could compile it using it. 
 There are some cameras which has extra controls using it, and you can set much more resolutions.
-# tar xzvf mjpg-streamer.tgz
-# cd mjpg-streamer
-# make USE_LIBV4L2=true clean all
-# export LD_LIBRARY_PATH=.
-# ./mjpg_streamer -o "output_http.so -w ./www"
+$ tar xzvf mjpg-streamer.tgz
+$ cd mjpg-streamer
+$ make USE_LIBV4L2=true clean all
+$ export LD_LIBRARY_PATH=.
+$ ./mjpg_streamer -o "output_http.so -w ./www"
 
 If you would like to replace a WebcamXP based system with an mjpg-streamer based you may use the 
 WXP_COMPAT make argument. If you compile with this argument the mjpg stream will be available as cam_1.mjpg and the
 still jpg snapshot as cam_1.jpg. 
-# make WXP_COMPAT=true
+$ make WXP_COMPAT=true
 
 
 More examples can be found in the start.sh bash script.
 
 In case of error:
- * the input plugin "input_uvc.so" depends on libjpeg, make sure it is installed.
+ the input plugin "input_uvc.so" depends on libjpeg, make sure it is installed.
 
 Dependencies for the input plugin "input_uvc.so":
- * libjpeg
- * recent Linux-UVC driver (newer then revision #170)
+ libjpeg
+ recent Linux-UVC driver (newer then revision #170)
 
 Dependencies for the output plugin "output_autofocus.so":
- * libmath
+ libmath
  
 
 To play the HTTP M-JPEG stream with mplayer:
-# mplayer -fps 30 -demuxer lavf "http://127.0.0.1:8080/?action=stream&ignored.mjpg"
+$ mplayer -fps 30 -demuxer lavf "http://127.0.0.1:8080/?action=stream&ignored.mjpg"
 
 It might be necessary to configure mplayer to prefer IPv4 instead of IPv6
-# vi ~./mplayer/config
+$ vi ~./mplayer/config
 add or change the option: prefer-ipv4=yes
