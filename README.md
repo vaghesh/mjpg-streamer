@@ -8,8 +8,8 @@ $ Cd mjpg-Streamer
 
 $ make 
 
-$ export LD_LIBRARY_PATH="$(pwd)"
+$ export PATH=$PATH:~/mjpg-streamer/
 
-$ ./mjpg_streamer -i "./input_uvc.so -d /dev/video0 -r 640x480 -f 15" -o "./output_http.so -p 9000 -w ./www"
+$ mjpg_streamer -i "./input_uvc.so -d /dev/video0 -r 640x480 -f 15" -o "./output_http.so -p 9000 -w ./www"
 
 
